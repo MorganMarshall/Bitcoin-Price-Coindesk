@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+ <div id="app">
+  <h1>Bitcoin Price Index</h1>
+
+  
+
+  <section>
+    <div v-if="loading">Loading...</div>
+
+    <div v-else v-for="currency in info" class="currency">
+      {{ currency.description }}:
+      <span class="lighten">
+        <span v-html="currency.symbol"></span>{{ currency.rate_float | currencydecimal }}
+      </span>
+    </div>
+
+  </section>
+</div>
+    <script src="index.js"></script>
+  </body>
+</html>
